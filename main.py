@@ -25,15 +25,15 @@ def get_custom_images():
     custom_images = {
         "moderate rain": "clear_sky.jpg",
         # "clear sky": "clear_sky.jpg",
-        "few clouds": "https://example.com/few_clouds_image.jpg",
-        "scattered clouds": "https://example.com/scattered_clouds_image.jpg",
-        "broken clouds": "https://example.com/broken_clouds_image.jpg",
-        "shower rain": "https://example.com/shower_rain_image.jpg",
-        "rain": "https://example.com/rain_image.jpg",
-        # "moderate rain": "https://example.com/moderate_rain_image.jpg",
-        "thunderstorm": "https://example.com/thunderstorm_image.jpg",
-        "snow": "https://example.com/snow_image.jpg",
-        "mist": "https://example.com/mist_image.jpg"
+        # "few clouds": "https://example.com/few_clouds_image.jpg",
+        # "scattered clouds": "https://example.com/scattered_clouds_image.jpg",
+        # "broken clouds": "clouds.png",
+        # "shower rain": "https://example.com/shower_rain_image.jpg",
+        # "rain": "https://example.com/rain_image.jpg",
+        # # "moderate rain": "https://example.com/moderate_rain_image.jpg",
+        # "thunderstorm": "https://example.com/thunderstorm_image.jpg",
+        # "snow": "https://example.com/snow_image.jpg",
+        # "mist": "https://example.com/mist_image.jpg"
     }
     return custom_images
 
@@ -72,8 +72,10 @@ def main():
 
             # Display custom weather image
             weather_description = weather_data['weather'][0]['description'].lower()
+
             if weather_description in custom_images:
                 st.image(custom_images[weather_description], caption=weather_description, use_column_width=True)
+
             else:
                 st.warning("Custom image not available for this weather description.")
 
