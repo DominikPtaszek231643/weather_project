@@ -50,9 +50,9 @@ def get_weather_info(api_key, city_name):
 
             return st.session_state.weather_data
 
-    except ValueError as e:
+    except ValueError as error:
         st.write('Takie miasto nie istnieje w bazie danych')
-        st.write(e)
+        st.write(error)
 
 
 def display_history(city_history):
@@ -329,8 +329,8 @@ def display_catplot(df):
 
     sns.barplot(x='Dzien', y='Values', hue='Temperature', data=data_melted)
 
-    ax.set_xlabel('Categories')
-    ax.set_ylabel('Values')
+    ax.set_xlabel('Dni')
+    ax.set_ylabel('Temperatura')
     ax.set_title('Porównanie temperatury maksymalnej, minimalnej i średniej')
     ax.legend()
 
@@ -426,9 +426,11 @@ def show_weather_hour_info(df, selected_which_day):
 
 
 st.title('Aplikacja pogodowa 🌡️')
+
 city = st.text_input("Wpisz miasto:", "Wroclaw", key='current_city')
 
 st.button('Znajdź pogodę', on_click=lambda: get_weather_info(API_KEY, city))
+
 
 if 'selected_day' not in st.session_state:
     st.session_state.selected_day = False
@@ -443,7 +445,7 @@ try:
 
         if st.session_state.button_pressed is not None:
             which_day = st.session_state.button_pressed.split('_')[-1]
-
+            # which = 18
         hourly_forecast_df = convert_data_to_dataframe(st.session_state.weather_data, which_day=which_day)
 
         show_weather_buttons()
