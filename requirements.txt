@@ -5,5 +5,4 @@ seaborn
 plotly
 streamlit
 streamlit-option-menu
-pprint
 matplotlib
