@@ -1,5 +1,10 @@
 import requests
 from pprint import pprint
+# streamlit
+# pandas
+# seaborn
+# matplotlib
+# requests
 import streamlit as st
 import pandas as pd
 from datetime import datetime
